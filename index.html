@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>لیست سرور های ایرانی</title>
+  <title>لیست سرور های ماینکرافت</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -223,7 +223,9 @@
     </nav>
   </header>
 
-  <!-- کارت سرور پر شده -->
+  <h2 style="text-align: center;
+      color: #d0aaff;
+      text-shadow: 0 0 10px var(--main-color); margin-top: 35px; ">لیست سرور ها:</h2>
   <div class="server-card" data-ip="mc.gameup.ir">
     <img
       src="https://cdn.imgurl.ir/uploads/b096322_channels4_profile.jpg"
@@ -251,19 +253,48 @@
   <div class="server-card" data-ip="Play.CyrusMine.IR">
     <img src="https://cdn.imgurl.ir/uploads/j33219_msg-10012848915-20.jpg" alt="لوگوی سرور 2" />
     <div class="info">
-      <h3>سرور cyrusmine</h3>
+      <h3>cyrusmine</h3>
       <p>آی‌پی: Play.CyrusMine.IR</p>
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
   </div>
+  
+   <div class="server-card" data-ip="Play.GunMax.Org">
+    <img src="https://cdn.imgurl.ir/uploads/w410018_gunmax.png" alt="لوگو سرور" />
+    <div class="info">
+      <h3>gunmax</h3>
+      <p>آی‌پی: Play.GunMax.Org</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
 
+
+  <div class="server-card" data-ip="play.bitonetop.com">
+    <img src="https://cdn.imgurl.ir/uploads/a720537_bitcraft.jpeg" alt="لوگوی شما" />
+    <div class="info">
+      <h3>bitcraft</h3>
+      <p>آی‌پی: play.bitonetop.com</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
  
+ 
+  <div class="server-card" data-ip="Play.PeakCraft.iR">
+    <img src="https://cdn.imgurl.ir/uploads/s88079_PeakCraft-with-eagle-logo.png" alt="لوگوی سرور" />
+    <div class="info">
+      <h3>peak craft</h3>
+      <p>آی‌پی: Play.PeakCraft.iR</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  <h2 style="text-align: center; color: #c46aff; text-shadow: 0 0 25px #7209b7">ویژه</h2>
   <div class="server-card" data-ip="">
     <img src="" alt="لوگوی شما" />
     <div class="info">
       <h3>اسم سرور شما</h3>
       <p>آی‌پی: ایپی شما</p>
       <p class="status">در حال دریافت اطلاعات...</p>
+      <p style="font-size: 13px; color: rgba(255, 255, 255, 0.31);margin-top: 16px">(برای ثبت سرور خود از طریق منو به پشتیبانی برید)</p>
     </div>
   </div>
 
@@ -296,7 +327,7 @@
         if (!data.online) {
           statusElement.innerHTML = "❌ سرور آفلاین است";
         } else {
-          statusElement.innerHTML = `✅ آنلاین |   ${data.players.online} / ${data.players.max}`;
+          statusElement.innerHTML = `✅ آنلاین | ${data.players.max} /  ${data.players.online}`;
         }
       } catch (err) {
         statusElement.innerHTML = "❌ خطا در اتصال به API";
