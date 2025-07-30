@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>لیست سرور های ایرانی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --main-color: #7209b7;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background-color: #1a1a1a;
+      color: #eee;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(114, 9, 183, 0.4);
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    header:hover {
+      border-block-end: 2px solid #7209b7;
+      box-shadow: 0 0 20px #7209b7;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 10px var(--main-color);
+      transition: 0.8s ease;
+    }
+
+    .logo span {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 36px var(--main-color);
+    }
+
+    .menu-btn {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+      position: relative;
+      padding: 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .menu-btn:hover,
+    .menu-btn.open {
+      color: #7209b7;
+    }
+
+    .menu-btn:hover .bar {
+      background-color: #7209b7;
+    }
+
+    .menu-btn .bar {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin: 6px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .menu-btn.open .bar1 {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-btn.open .bar2 {
+      opacity: 0;
+    }
+
+    .menu-btn.open .bar3 {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      right: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--main-color);
+      transition: 0.7s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100px;
+        right: 10px;
+        padding: 20px;
+        border-radius: 8px;
+        gap: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+    }
+
+   
+    .server-card {
+      max-width: 400px;
+      margin: 40px auto;
+      background: #111;
+      border: 2px solid var(--main-color);
+      border-radius: 12px;
+      box-shadow: 0 0 16px rgba(114, 9, 183, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      color: #eee;
+      direction: rtl;
+      transition: 0.3s ease;
+    }
+
+    .server-card:hover {
+      box-shadow: 0 0 24px var(--main-color);
+    }
+
+    .server-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid var(--main-color);
+      box-shadow: 0 0 8px var(--main-color);
+      object-fit: cover;
+    }
+
+    .server-card .info h3 {
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 0 10px var(--main-color);
+    }
+
+    .server-card .info p {
+      margin: 5px 0;
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      color: #bbb;
+      padding: 7px 0;
+      background-color: #111;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img
+        src="https://cdn.imgurl.ir/uploads/d54135_avatar-1009848210_3.jpg"
+        alt="لوگو"
+      />
+      <span>حکومت ماینکرافت</span>
+    </div>
+    <button class="menu-btn" onclick="toggleMenu()">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
+    <nav id="navMenu">
+      <a href="https://ender-brine.github.io/home" target="_blank">خانه</a>
+      <a href="https://ender-brine.github.io/about" target="_blank">درباره ما</a>
+      <a href="https://splus.ir/hokomatmine" target="_blank">کانال</a>
+      <a href="https://splus.ir/enderbrine" target="_blank">پشتیبانی</a>
+    </nav>
+  </header>
+
+  <!-- کارت سرور پر شده -->
+  <div class="server-card" data-ip="mc.gameup.ir">
+    <img
+      src="https://cdn.imgurl.ir/uploads/b096322_channels4_profile.jpg"
+      alt="لوگوی سرور"
+    />
+    <div class="info">
+      <h3>سرور GameUP</h3>
+      <p>آی‌پی: mc.gameup.ir</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+
+  
+  <div class="server-card" data-ip="play.trexmine.com
+">
+    <img src="https://cdn.imgurl.ir/uploads/g27086_1991357-m.jpg" alt="لوگوی سرور" />
+    <div class="info">
+      <h3>سرور trexmine</h3>
+      <p>آی‌پی: play.trexmine.com</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+
+ 
+  <div class="server-card" data-ip="Play.CyrusMine.IR">
+    <img src="https://cdn.imgurl.ir/uploads/j33219_msg-10012848915-20.jpg" alt="لوگوی سرور 2" />
+    <div class="info">
+      <h3>اسم سرور 2</h3>
+      <p>آی‌پی: Play.CyrusMine.IR</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+
+ 
+  <div class="server-card" data-ip="">
+    <img src="" alt="لوگوی شما" />
+    <div class="info">
+      <h3>اسم سرور شما</h3>
+      <p>آی‌پی: ایپی شما</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - حکومت ماینکرافت</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navMenu");
+      const menuButton = document.querySelector(".menu-btn");
+      nav.classList.toggle("show");
+      menuButton.classList.toggle("open");
+    }
+
+    document.addEventListener("click", function (event) {
+      const navMenu = document.getElementById("navMenu");
+      const menuButton = document.querySelector(".menu-btn");
+      if (!navMenu.contains(event.target) && !menuButton.contains(event.target)) {
+        navMenu.classList.remove("show");
+        menuButton.classList.remove("open");
+      }
+    });
+
+    async function fetchServerStatus(ip, statusElement) {
+      try {
+        const response = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
+        const data = await response.json();
+
+        if (!data.online) {
+          statusElement.innerHTML = "❌ سرور آفلاین است";
+        } else {
+          statusElement.innerHTML = `✅ آنلاین |   ${data.players.online} / ${data.players.max}`;
+        }
+      } catch (err) {
+        statusElement.innerHTML = "❌ خطا در اتصال به API";
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const cards = document.querySelectorAll(".server-card");
+      cards.forEach((card) => {
+        const ip = card.getAttribute("data-ip");
+        const statusElement = card.querySelector(".status");
+        fetchServerStatus(ip, statusElement);
+      });
+    });
+  </script>
+</body>
+</html>
