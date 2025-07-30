@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "حکومت ماینکرافت",
+  "url": "https://ender-brine.github.io/server",
+  "description": "لیست تمامی سرور های ماینکرافت ایران و سرور شما به صورت رایگان",
+  "image": "https://cdn.imgurl.ir/uploads/d54135_avatar-1009848210_3.jpg"
+}
+</script>
+
+<meta property="og:title" content="حکومت ماینکرافت" />
+<meta property="og:description" content="لیست تمامی سرور های ماینکرافت ایران و گذاشتن سرور شما به صورت رایگان" />
+<meta property="og:image" content="https://cdn.imgurl.ir/uploads/d54135_avatar-1009848210_3.jpg" />
+<meta property="og:url" content="https://ender-brine.github.io/server" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="حکومت ماینکرافت" />
+<meta name="twitter:description" content="لیست تمامی سرور های ماینکرافت ایران و سرور شما به صورت رایگان" />
+<meta name="twitter:image" content="https://cdn.imgurl.ir/uploads/d54135_avatar-1009848210_3.jpg" />
+
   <meta charset="UTF-8" />
   <title>لیست سرور های ماینکرافت</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +30,6 @@
     :root {
       --main-color: #7209b7;
     }
-
     body {
       margin: 0;
       font-family: Tahoma, sans-serif;
@@ -23,23 +44,27 @@
       backdrop-filter: blur(10px);
       padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 20px;
+      justify-content: center;
       z-index: 1000;
       box-shadow: 0 4px 20px rgba(114, 9, 183, 0.4);
       transition: box-shadow 0.3s ease, border 0.3s ease;
       border: 2px solid transparent;
+      direction: rtl;
     }
 
     header:hover {
-      border-block-end: 2px solid #7209b7;
-      box-shadow: 0 0 20px #7209b7;
+      border-block-end: 2px solid var(--main-color);
+      box-shadow: 0 0 20px var(--main-color);
     }
 
     .logo {
+      flex: 0 0 auto;
       display: flex;
       align-items: center;
       gap: 14px;
+      margin-left: auto;
     }
 
     .logo img {
@@ -58,51 +83,26 @@
       text-shadow: 0 0 36px var(--main-color);
     }
 
-    .menu-btn {
-      font-size: 28px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-      display: none;
-      position: relative;
-      padding: 10px;
-      transition: color 0.3s ease, transform 0.3s ease;
+    .search-box {
+      flex: 1 1 250px;
+      max-width: 300px;
     }
 
-    .menu-btn:hover,
-    .menu-btn.open {
-      color: #7209b7;
-    }
-
-    .menu-btn:hover .bar {
-      background-color: #7209b7;
-    }
-
-    .menu-btn .bar {
-      display: block;
-      width: 30px;
-      height: 4px;
-      background: white;
-      margin: 6px 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .menu-btn.open .bar1 {
-      transform: translateY(10px) rotate(45deg);
-    }
-
-    .menu-btn.open .bar2 {
-      opacity: 0;
-    }
-
-    .menu-btn.open .bar3 {
-      transform: translateY(-10px) rotate(-45deg);
+    .search-box input {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--main-color);
+      background-color: #111;
+      color: #fff;
+      font-family: Tahoma;
     }
 
     nav {
+      flex: 0 0 auto;
       display: flex;
       gap: 20px;
+      margin-right: auto;
     }
 
     nav a {
@@ -129,6 +129,49 @@
       right: auto;
     }
 
+    .menu-btn {
+      font-size: 28px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      display: none;
+      position: relative;
+      padding: 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .menu-btn:hover,
+    .menu-btn.open {
+      color: var(--main-color);
+    }
+
+    .menu-btn:hover .bar {
+      background-color: var(--main-color);
+    }
+
+    .menu-btn .bar {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background: white;
+      margin: 6px 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .menu-btn.open .bar1 {
+      transform: translateY(10px) rotate(45deg);
+    }
+
+    .menu-btn.open .bar2 {
+      opacity: 0;
+    }
+
+    .menu-btn.open .bar3 {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+
     @media (max-width: 768px) {
       .menu-btn {
         display: block;
@@ -149,9 +192,18 @@
       nav.show {
         display: flex;
       }
+      
+      .search-box {
+        max-width: 100%;
+        flex: none;
+        margin-left: 10px;
+      }
+
+      header {
+        justify-content: flex-start;
+      }
     }
 
-   
     .server-card {
       max-width: 400px;
       margin: 40px auto;
@@ -202,7 +254,7 @@
   </style>
 </head>
 <body>
-  <header>
+   <header>
     <div class="logo">
       <img
         src="https://cdn.imgurl.ir/uploads/d54135_avatar-1009848210_3.jpg"
@@ -210,46 +262,52 @@
       />
       <span>حکومت ماینکرافت</span>
     </div>
-    <button class="menu-btn" onclick="toggleMenu()">
-      <span class="bar bar1"></span>
-      <span class="bar bar2"></span>
-      <span class="bar bar3"></span>
-    </button>
+
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="جستجوی سرور...(اینگلیسی)"
+        oninput="searchServers()"
+      />
+    </div>
+
     <nav id="navMenu">
       <a href="https://ender-brine.github.io/home" target="_blank">خانه</a>
       <a href="https://ender-brine.github.io/about" target="_blank">درباره ما</a>
       <a href="https://splus.ir/hokomatmine" target="_blank">کانال</a>
       <a href="https://splus.ir/enderbrine" target="_blank">پشتیبانی</a>
     </nav>
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
   </header>
 
-  <h2 style="text-align: center;
-      color: #d0aaff;
-      text-shadow: 0 0 10px var(--main-color); margin-top: 35px; ">لیست سرور ها:</h2>
+  <h2 style="text-align: center; color: #d0aaff; text-shadow: 0 0 10px var(--main-color); margin-top: 35px;">لیست سرور ها:</h2>
   <div class="server-card" data-ip="mc.gameup.ir">
     <img
       src="https://cdn.imgurl.ir/uploads/b096322_channels4_profile.jpg"
       alt="لوگوی سرور"
     />
     <div class="info">
-      <h3>سرور GameUP</h3>
+      <h3>GameUP</h3>
       <p>آی‌پی: mc.gameup.ir</p>
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
   </div>
 
-  
-  <div class="server-card" data-ip="play.trexmine.com
-">
+  <div class="server-card" data-ip="play.trexmine.com">
     <img src="https://cdn.imgurl.ir/uploads/g27086_1991357-m.jpg" alt="لوگوی سرور" />
     <div class="info">
-      <h3>سرور trexmine</h3>
+      <h3>trexmine</h3>
       <p>آی‌پی: play.trexmine.com</p>
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
   </div>
 
- 
   <div class="server-card" data-ip="Play.CyrusMine.IR">
     <img src="https://cdn.imgurl.ir/uploads/j33219_msg-10012848915-20.jpg" alt="لوگوی سرور 2" />
     <div class="info">
@@ -259,7 +317,7 @@
     </div>
   </div>
   
-   <div class="server-card" data-ip="Play.GunMax.Org">
+  <div class="server-card" data-ip="Play.GunMax.Org">
     <img src="https://cdn.imgurl.ir/uploads/w410018_gunmax.png" alt="لوگو سرور" />
     <div class="info">
       <h3>gunmax</h3>
@@ -268,16 +326,14 @@
     </div>
   </div>
 
-
   <div class="server-card" data-ip="play.bitonetop.com">
-    <img src="https://cdn.imgurl.ir/uploads/a720537_bitcraft.jpeg" alt="لوگوی شما" />
+    <img src="https://cdn.imgurl.ir/uploads/a720537_bitcraft.jpeg" alt="لوگوی سرور" />
     <div class="info">
       <h3>bitcraft</h3>
       <p>آی‌پی: play.bitonetop.com</p>
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
   </div>
- 
  
   <div class="server-card" data-ip="Play.PeakCraft.iR">
     <img src="https://cdn.imgurl.ir/uploads/s88079_PeakCraft-with-eagle-logo.png" alt="لوگوی سرور" />
@@ -287,7 +343,8 @@
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
   </div>
-  <h2 style="text-align: center; color: #c46aff; text-shadow: 0 0 25px #7209b7">ویژه</h2>
+  
+  <br>
   <div class="server-card" data-ip="">
     <img src="" alt="لوگوی شما" />
     <div class="info">
@@ -321,13 +378,17 @@
 
     async function fetchServerStatus(ip, statusElement) {
       try {
+        if (!ip) {
+          statusElement.innerHTML = "❌ آی‌پی وارد نشده";
+          return;
+        }
         const response = await fetch(`https://api.mcsrvstat.us/2/${ip}`);
         const data = await response.json();
 
         if (!data.online) {
           statusElement.innerHTML = "❌ سرور آفلاین است";
         } else {
-          statusElement.innerHTML = `✅ آنلاین | ${data.players.max} /  ${data.players.online}`;
+          statusElement.innerHTML = `✅ آنلاین | ${data.players?.online ?? 0} / ${data.players?.max ?? 0}`;
         }
       } catch (err) {
         statusElement.innerHTML = "❌ خطا در اتصال به API";
@@ -342,6 +403,25 @@
         fetchServerStatus(ip, statusElement);
       });
     });
+
+    function searchServers() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".server-card");
+      let anyVisible = false;
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").innerText.toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = "flex";
+          anyVisible = true;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      const footer = document.querySelector("footer");
+      footer.style.display = input.length > 0 ? "none" : "block";
+    }
   </script>
 </body>
 </html>
