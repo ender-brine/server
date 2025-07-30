@@ -86,15 +86,19 @@
     .search-box {
       flex: 1 1 250px;
       max-width: 300px;
+      width: 400px;
+      margin-right: 100px;
+      margin-top: 20px
+    
     }
 
     .search-box input {
       width: 100%;
       padding: 8px 12px;
       border-radius: 8px;
-      border: 1px solid var(--main-color);
+      border: 2px solid var(--main-color);
       background-color: #111;
-      color: #fff;
+      color: rgba(114, 9, 183, 0.4);
       font-family: Tahoma;
     }
 
@@ -263,14 +267,7 @@
       <span>حکومت ماینکرافت</span>
     </div>
 
-    <div class="search-box">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="جستجوی سرور...(اینگلیسی)"
-        oninput="searchServers()"
-      />
-    </div>
+  
 
     <nav id="navMenu">
       <a href="https://ender-brine.github.io/home" target="_blank">خانه</a>
@@ -285,6 +282,14 @@
       <span class="bar bar3"></span>
     </button>
   </header>
+    <div class="search-box">
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="جستجوی سرور...(اینگلیسی)"
+        oninput="searchServers()"
+      />
+    </div>
 
   <h2 style="text-align: center; color: #d0aaff; text-shadow: 0 0 10px var(--main-color); margin-top: 35px;">لیست سرور ها:</h2>
   <div class="server-card" data-ip="mc.gameup.ir">
