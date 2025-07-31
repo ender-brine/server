@@ -137,6 +137,13 @@
       left: 0;
       right: auto;
     }
+    .sticky-search {
+  position: sticky;
+  top: 89px; 
+  z-index: 998;
+  padding: 10px 20px;
+}
+ 
 
     .menu-btn {
       font-size: 28px;
@@ -223,7 +230,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      padding: 20px;
+      padding: 15px;
       color: #eee;
       direction: rtl;
       transition: 0.3s ease;
@@ -246,6 +253,7 @@
 
     .server-card .info h3 {
       margin: 0;
+      margin-bottom: 10px;
       color: #fff;
       text-shadow: 0 0 1px var(--main-color);
     }
@@ -290,14 +298,16 @@
     </button>
   </header>
     
-    <div class="search-box">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="جستجوی سرور...(اینگلیسی)"
-        oninput="searchServers()"
-      />
-    </div>
+    <div class="sticky-search">
+  <div class="search-box">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="جستجوی اسم یا IP سرور...(اینگلیسی)"
+      oninput="searchServers()"
+    />
+  </div>
+</div>
 
   <h2 style="text-align: center; color: #d0aaff; text-shadow: 0 0 10px var(--main-color); margin-top: 35px;">لیست سرور ها:</h2>
   <div class="server-card" data-ip="mc.gameup.ir">
@@ -366,7 +376,7 @@
    <div class="server-card" data-ip="XCraft.iR">
     <img src="https://cdn.imgurl.ir/uploads/h92928_image-logo1.png" alt="لوگو سرور" />
     <div class="info">
-      <h3>XCraft</h3>
+      <h3>X Craft</h3>
       <p>آی‌پی: XCraft.iR</p>
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
@@ -374,9 +384,71 @@
    <div class="server-card" data-ip="Play.CyrusMine.IR">
     <img src="https://cdn.imgurl.ir/uploads/j33219_msg-10012848915-20.jpg" alt="لوگوی سرور 2" />
     <div class="info">
-     <h2 style="text-align: center; color: #d0aaff; margin-left: 0px; margin-bottom: 15px; margin-top: -8px; text-shadow: 0 0 17px #7209b7">آگهی </h2>
       <h3>cyrusmine</h3>
       <p>آی‌پی: Play.CyrusMine.IR</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.blazenetwork.ir">
+    <img src="https://cdn.imgurl.ir/uploads/c80210_msg19236670-27494.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>blazenetwork</h3>
+      <p>آی‌پی: play.blazenetwork.ir</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.ultra-mc.ir">
+    <img src="https://cdn.imgurl.ir/uploads/w624622_msg19236670-27495.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>ultramc</h3>
+      <p>آی‌پی: play.ultra-mc.ir</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.pixelmc.ir">
+    <img src="https://cdn.imgurl.ir/uploads/y260640_msg19236670-27496.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>pixelmc</h3>
+      <p>آی‌پی: play.pixelmc.ir</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.neocraft.ir">
+    <img src="https://cdn.imgurl.ir/uploads/b18070_msg19236670-27497.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>neocraft</h3>
+      <p>آی‌پی: play.neocraft.ir</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.iranminecraft.com">
+    <img src="https://cdn.imgurl.ir/uploads/f592742_msg19236670-27498.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>iranminecraft</h3>
+      <p>آی‌پی: play.iranminecraft.com</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.nightcraft.ir">
+    <img src="https://cdn.imgurl.ir/uploads/c92203_msg19236670-27499.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>nightcraft</h3>
+      <p>آی‌پی: play.nightcraft.ir</p>
+      <p class="status">در حال دریافت اطلاعات...</p>
+    </div>
+  </div>
+  
+   <div class="server-card" data-ip="play.lunamc.ir">
+    <img src="https://cdn.imgurl.ir/uploads/h1920_msg19236670-27500.jpg" alt="لوگو سرور" />
+    <div class="info">
+      <h3>lunamc</h3>
+      <p>آی‌پی: play.lunamc.ir</p>
       <p class="status">در حال دریافت اطلاعات...</p>
     </div>
   </div>
@@ -441,24 +513,27 @@
       });
     });
 
-    function searchServers() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const cards = document.querySelectorAll(".server-card");
-      let anyVisible = false;
+ function searchServers() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const cards = document.querySelectorAll(".server-card");
+  let anyVisible = false;
 
-      cards.forEach(card => {
-        const title = card.querySelector("h3").innerText.toLowerCase();
-        if (title.includes(input)) {
-          card.style.display = "flex";
-          anyVisible = true;
-        } else {
-          card.style.display = "none";
-        }
-      });
+  cards.forEach(card => {
+    const title = card.querySelector("h3").innerText.toLowerCase();
+    const ipText = card.querySelector("p").innerText.toLowerCase(); // آی‌پی سرور
 
-      const footer = document.querySelector("footer");
-      footer.style.display = input.length > 0 ? "none" : "block";
+    if (title.includes(input) || ipText.includes(input)) {
+      card.style.display = "flex";
+      anyVisible = true;
+    } else {
+      card.style.display = "none";
     }
+  });
+
+  const footer = document.querySelector("footer");
+  footer.style.display = input.length > 0 ? "none" : "block";
+}
+
   </script>
 </body>
 </html>
