@@ -44,7 +44,7 @@
       top: 0;
       background: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(10px);
-      padding: 15px 30px;
+      padding: 8px 30px;
       display: flex;
       align-items: center;
       gap: 20px;
@@ -82,7 +82,7 @@
     }
 
     .logo span {
-      font-size: 22px;
+      font-size: 25px;
       font-weight: bold;
       color: #fff;
       text-shadow: 0 0 36px var(--main-color);
@@ -155,6 +155,7 @@
       padding: 10px;
       transition: color 0.3s ease, transform 0.3s ease;
       flex-shrink: 0;
+      margin-top: 3px;
     }
 
     .menu-btn:hover,
@@ -218,6 +219,37 @@
         justify-content: flex-start;
       }
     }
+#addServerBtn {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7209b7;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 12px rgba(114, 9, 183, 0.6);
+  cursor: pointer;
+  z-index: 9999;
+  transition: 0.3s ease;
+}
+
+#addServerBtn:hover {
+  background-color: #580089;
+  box-shadow: 0 0 20px rgba(114, 9, 183, 1);
+}
+
+@media (max-width: 480px) {
+  #addServerBtn {
+    bottom: 40px;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+}
+
 
     .server-card {
       max-width: 400px;
@@ -269,6 +301,7 @@
       background-color: #111;
       font-size: 14px;
     }
+    
   </style>
 </head>
 <body>
@@ -276,7 +309,8 @@
     <div class="logo">
       <img
         src="https://uploadkon.ir/uploads/e05801_25Untitled316-20250801182331.png"
-        alt="لوگو"
+        alt="لوگو"  
+        loading="lazy"
       />
       <span>حکومت ماینکرافت</span>
     </div>
@@ -295,6 +329,7 @@
       <span class="bar bar2"></span>
       <span class="bar bar3"></span>
     </button>
+    
   </header>
     
     <div class="sticky-search">
@@ -573,6 +608,11 @@
     </div>
   </div>
   --->
+  
+  <button id="addServerBtn" onclick="handleAddServerClick()">
+  اضافه کردن سرور خود
+</button>
+
 
   <footer>
     <p>&copy; 2025 - حکومت ماینکرافت</p>
@@ -630,7 +670,7 @@
 
   cards.forEach(card => {
     const title = card.querySelector("h3").innerText.toLowerCase();
-    const ipText = card.querySelector("p").innerText.toLowerCase(); // آی‌پی سرور
+    const ipText = card.querySelector("p").innerText.toLowerCase(); 
 
     if (title.includes(input) || ipText.includes(input)) {
       card.style.display = "flex";
@@ -644,6 +684,26 @@
   footer.style.display = input.length > 0 ? "none" : "block";
 }
     
+    function handleAddServerClick() {
+ 
+  const btn = document.getElementById("addServerBtn");
+  btn.style.display = "none";
+
+  
+  sessionStorage.setItem("serverBtnClicked", "true");
+
+
+  window.location.href = "https://splus.ir/enderbrine";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("addServerBtn");
+  const alreadyClicked = sessionStorage.getItem("serverBtnClicked");
+  if (alreadyClicked) {
+    btn.style.display = "none";
+  }
+});
+
 
   </script>
 </body>
